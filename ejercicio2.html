@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2</title>
+</head>
+<body>
+<input type="file" onchange="loadFile(this.files[0])">
+<br>
+<pre id="output"></pre>
+
+<script type="application/javascript">
+  // 2. Leer un archivo que solo contiene números separados por espacio y sumar los números pares y primos.
+  
+  function isPrime(n) {
+    if (n < 2) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+    for (var i = 3; i <= Math.sqrt(n); i += 2) {
+      if (n % i == 0) return false;
+    }
+    return true;
+  }
+
+  async function loadFile(file) {
+    const text = await file.text();
+    const numbers = text.split(' ').map(Number);
+    const evensAndPrimes = numbers.filter(n => n % 2 === 0 || isPrime(n));
+
+    let sum = 0;
+    for (let i = 0; i < evensAndPrimes.length; i++) {
+      sum = sum + evensAndPrimes[i];
+    }
+
+    console.log(evensAndPrimes, sum);
+
+    document.getElementById('output').textContent = `Lista de numeros pares y primos: ${evensAndPrimes}\nSumatoria: ${sum}`;
+  }
+</script>
+</body>
+</html>

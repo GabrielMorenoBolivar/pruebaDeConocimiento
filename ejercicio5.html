@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 5</title>
+</head>
+<body>
+
+<table id="tablaresultados" style="border-collapse: collapse;" border="1"></table>
+
+<pre id="output"></pre>
+
+<script type="application/javascript">
+// 5. Teniendo un arreglo en una estructura JSON con datos de tipo:
+
+//  {
+//    ciudad: string;
+//    mes: string;
+//    totalVentas: string;
+//  }
+
+// Calcule y muestre el total por ciudad para cada mes.
+  
+  const ciudadesVentas = [
+    {
+      ciudad: 'Bogota',
+      mes: 'Enero',
+      totalVentas: 300000,
+    }, {
+      ciudad: 'Bogota',
+      mes: 'Abril',
+      totalVentas: 600000,
+    }, {
+      ciudad: 'Madrid',
+      mes: 'Noviembre',
+      totalVentas: 200000,
+    }, {
+      ciudad: 'Madrid',
+      mes: 'Diciembre',
+      totalVentas: 40000,
+    }, {
+      ciudad: 'Neiva',
+      mes: 'Febrero',
+      totalVentas: 7000000,
+    }, {
+      ciudad: 'Neiva',
+      mes: 'Septiembre',
+      totalVentas: 10000,
+    },
+  ];
+
+  let agrupacion = {};
+  for (let i = 0; i < ciudadesVentas.length; i++) {
+    const ciudadVenta = ciudadesVentas[i];
+
+    if (agrupacion[ciudadVenta.ciudad]) {
+      agrupacion[ciudadVenta.ciudad].push(ciudadVenta);
+    } else {
+      agrupacion[ciudadVenta.ciudad] = [ciudadVenta];
+    }
+  }
+
+  const tablaresultados = document.getElementById('tablaresultados');
+
+  tablaresultados.innerHTML = `
+    <tr>
+      <th>Ciudad</th>
+      <th>Mes</th>
+      <th>Total</th>
+    </tr>
+    <tbody>
+      ${Object.keys(agrupacion).map(ciudad => {
+        return agrupacion[ciudad].map((venta, index) => {
+          if (index > 0) {
+            return `
+            <tr>
+              <td>${venta.mes}</td>
+              <td>${venta.totalVentas}</td>
+            </tr>
+          `;
+          }
+
+          return `
+            <tr>
+              <td rowspan="${agrupacion[ciudad].length}">${ciudad}</td>
+              <td>${venta.mes}</td>
+              <td>${venta.totalVentas}</td>
+            </tr>
+          `;
+        }).join('');
+      }).join('')}
+    </tbody>
+    `;
+
+  console.log(agrupacion);
+</script>
+</body>
+</html>

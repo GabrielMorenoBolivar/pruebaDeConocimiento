@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3</title>
+</head>
+<body>
+<input size="50" id="texto" type="text" placeholder="Escribe aqui un texto con llaves">
+<br>
+<pre id="output"></pre>
+
+<script type="application/javascript">
+  // 3. Teniendo una cadena con varias palabras claves entre corchetes {}, encuentre dichas palabras y retorne 
+  // un Array con las palabras, colocando su primera letra en mayúscula.
+
+  document.getElementById('texto').addEventListener('change', recibirTexto);
+
+  function recibirTexto(event) {
+    const texto = event.target.value;
+    const words = [...texto.matchAll(/{(\w+)}/g)];
+
+    let resultados = [];
+    for (let i = 0; i < words.length; i++) {
+      const palabra = words[i][1];
+
+      resultados.push(capitalize(palabra));
+    }
+
+    document.getElementById('output').textContent = `Palabras claves: ${resultados}`;
+  }
+
+  function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+</script>
+</body>
+</html>

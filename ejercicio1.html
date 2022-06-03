@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        // 1. Calcular los múltiplos de 4 comprendidos entre 4 y N, 
+        // donde N es un valor introducido por el usuario.
+
+        let numero = prompt("Ingrese un número cualquiera:");
+        let calculo;
+        let resultado;
+        let respuesta;
+
+        calculo = numero/4;
+        resultado = Math.floor(calculo);
+        console.log(resultado);
+
+        let multiplos = [];
+
+        for(i = 1; i<=resultado; i++){
+            respuesta = 4*i;
+            multiplos.push(respuesta);
+        }
+        
+        alert("Los multiplos de 4 comprendidos entre 4 y " + numero + " son: " + multiplos);
+    </script>
+</body>
+</html>
