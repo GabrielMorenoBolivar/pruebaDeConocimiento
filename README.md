@@ -2,7 +2,7 @@
 
 Tecnologias usadas:
 
-Lenguaje de programación: Javascript.
+Lenguaje de programación: JavaScript.
 IDE: Visual Studio Code.
 
 Para ejecutar cada uno de los ejercicios descarguelos y haga doble click
