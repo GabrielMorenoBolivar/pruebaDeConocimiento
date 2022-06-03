@@ -11,5 +11,9 @@ en los ejercicios que desea ejecutar y listo.
 Cuando ejecute el ejercicio2 utilice el archivo ejercicio2.txt en el momento
 que presione el boton "Elegir archivo".
 
-Gracias
+Gracias,
+
+Atentamente,
+
+Gabriel Ricardo Moreno Bolívar
  
