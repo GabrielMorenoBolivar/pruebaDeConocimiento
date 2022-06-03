@@ -2,7 +2,7 @@
 
 Tecnologias usadas:
 
-lenguaje de programación: Javascript
+Lenguaje de programación: Javascript
 IDE: Visual Studio Code
 Extensiones de Visual Studio: Live Server
 
